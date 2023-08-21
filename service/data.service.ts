@@ -34,35 +34,35 @@ export class DataService {
        acno,
        uname,
       psw   }
-    return this.http.post('http://localhost:3005/bankuser/userregister',bodyData)
+    return this.http.post('https://bsever-j0aw.onrender.com/bankuser/userregister',bodyData)
   }
   //login
   loginApi(acno:any,psw:any){
     const bodyData={
       acno,psw
   }
-  return this.http.post('http://localhost:3005/bankuser/user-login',bodyData)
+  return this.http.post('https://bsever-j0aw.onrender.com/bankuser/user-login',bodyData)
  }
  //get userprofile details
  getProfile(acno:any){
-  return this.http.get('http://localhost:3005/bankuser/user-profile/'+acno,this.Createheader())
+  return this.http.get('https://bsever-j0aw.onrender.com/bankuser/user-profile/'+acno,this.Createheader())
  }
  //get balance enquiry details
  getBalance(acno:any){
-  return this.http.get('http://localhost:3005/bankuser/user-balance/'+acno,this.Createheader())
+  return this.http.get('https://bsever-j0aw.onrender.com/bankuser/user-balance/'+acno,this.Createheader())
  }
  //moneytransfer
  //fromAcno,toAcno,fromAcnopsw,amount,Dateandtime
  moneyTransferApi(fromAcno:any,toAcno:any,psw:any,amount:any,date:any){
   const bodyData={fromAcno,toAcno,psw,amount,date}
-  return this.http.post('http://localhost:3005/bankuser/money-transfer',bodyData,this.Createheader())
+  return this.http.post('https://bsever-j0aw.onrender.com/bankuser/money-transfer',bodyData,this.Createheader())
  }
  // transaction history api
  transactionHistory(acno:any){
-  return this.http.get('http://localhost:3005/bankuser/user-history/'+acno,this.Createheader())
+  return this.http.get('https://bsever-j0aw.onrender.com/bankuser/user-history/'+acno,this.Createheader())
  }
  // delete history api
 acDelete(acno:any){
-  return this.http.delete('http://localhost:3005/bankuser/user-delete/'+acno,this.Createheader())
+  return this.http.delete('https://bsever-j0aw.onrender.com/bankuser/user-delete/'+acno,this.Createheader())
  }
 }
