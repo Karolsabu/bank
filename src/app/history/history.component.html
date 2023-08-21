@@ -1,0 +1,58 @@
+<!-- <div class="main_section "style="height:100vh"> -->
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 mt-5" style="height: 100vh;">
+                <img src="https://i.postimg.cc/gJGtnnxQ/Zero-Balance-Current-Account.png" width="100%">
+                <div class="d-flex justify-content-center">
+                    <button (click)="home()" class="btn btn-outline-primary mt-3"> <i
+                            class="fa-solid fa-house"></i>Home</button>
+                            <button (click)="convertpdf()"type="button" class="btn btn-outline-primary mt-3 ms-2">Export As <i
+                                class="fa-solid fa-file-pdf"></i></button>
+                </div>
+                
+
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 mt-5 h-100" style="height: 100vh;">
+                <h4 class=" text-center mt-3 ">{{date | date:'medium'}}</h4>
+                <h4 class="text-center mt-3">Account Statement</h4>
+
+                <div class="statementbtn mt-4 me-3">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button (click)="searchkeychange('')" type="button" class="btn btn-outline-primary">All</button>
+                        <button  (click)="searchkeychange('DEBIT')"type="button" class="btn btn-outline-primary">Debit</button>
+                        <button (click)="searchkeychange('CREDIT')" type="button" class="btn btn-outline-primary">Credit</button>
+                    </div>
+                </div>
+                <div  class="accounttable">
+                    <table class="mt-3x table-bordered" style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th class="border-1 text-center">#</th>
+                                <th class="border-1 text-center">Type</th>
+                                <th class="border-1 text-center ">Amount</th>
+                                <th class="border-1 text-center ">Account holder name</th>
+                                <th class="border-1 text-center">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr *ngFor="let i of transactions |data:searchkey:'type'; let j=index">
+                                <td>{{j+1}}</td>
+                                <td>{{i.type}}</td>
+                                <td>{{i.amount}}</td>
+                                <td>{{i.user}}</td>
+                                <td>{{i.date}}</td>
+                            </tr>
+                        </tbody>
+                        
+    
+                    </table>
+                </div>
+               
+                
+
+            </div>
+        </div>
+
+    </div>
+    <app-footer></app-footer>

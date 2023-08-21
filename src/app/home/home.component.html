@@ -1,0 +1,167 @@
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <title>Document</title> 
+   
+</head>
+<body>  -->
+<!-- <div class="container-fluid">
+        <div class="row ">
+            <div class="col-lg-4 col-md-4 "> -->
+
+<!-- <div> -->
+<!-- <h4>View Profile <i class="fa-solid fa-user fs-1"></i></h4> -->
+<!-- <hr>
+                    <h4>Balance Enquiry <i class="fa-solid fa-sack-dollar fs-1"></i></h4>
+                    <hr>
+                    <h4>Money Transfer <i class="fa-solid fa-money-bill-transfer fs-1"></i> </h4>
+                    <hr>
+                    <h4>Account Statement <i class="fa-solid fa-newspaper fs-1"></i></h4>
+                    <hr>
+                    <h4>Log out <i class="fa-solid fa-person-walking-arrow-right fs-1"></i> </h4>
+                    <hr>
+                    <h4>Delete Account <i class="fa-solid fa-person-circle-minus fs-1"></i></h4>
+                    <hr>  -->
+<!-- <div class="icon"> -->
+<!-- <i class="fa-solid fa-hand-holding-dollar fs-1"></i> -->
+<!-- </div> -->
+
+
+<!-- </div> -->
+<!-- </div>
+        
+            <div clas="col-lg-8 col-md-8 ">
+                <img src="https://i.postimg.cc/4NHgz76D/bnk-image1.png" alt="" >
+            </div>
+           
+        </div>
+    
+    </div> -->
+<!-- </body>
+</html> -->
+
+
+
+<div class="main">
+    <div class="container-fluid ">
+        <div class="row ">
+            <div class="col-lg-4 col-md-4 col-sm-4 home-page">
+                <button (click)='profileView()' type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">View Profile <i
+                        class="fa-solid fa-user fs-1"></i></button>
+                <hr>
+                <button (click)="Balancedetails()"class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Balance Enquiry <i class="fa-solid fa-sack-dollar fs-1"></i></button>
+                <hr>
+                <button  class="btn" data-bs-toggle="modal" data-bs-target="#moneytransfer">Money Transfer <i class="fa-solid fa-money-bill-transfer fs-1"></i> </button>
+                <hr>
+                <button  (click)="statement()"class="btn ">Account Statement <i class="fa-solid fa-newspaper fs-1"></i></button>
+                <hr>
+                <button (click)="logout()" class="btn" type="button">Log out <i class="fa-solid fa-person-walking-arrow-right fs-1"></i> </button>
+                <hr>
+                <button (click)="DeleteAc()" class="btn">Delete Account <i class="fa-solid fa-person-circle-minus fs-1"></i></button>
+                <hr>
+                <i class="fa-solid fa-hand-holding-dollar fs-1"></i>
+            </div>
+
+            <div class="col-lg-8 col-md-8 col-sm-8 mt-5">
+                <h2 class="text-center">Welcome {{user}}</h2>
+                <p  [ngClass]="shareAcno?'c':''"class="text-center">Wecome to Daksh Net Banking.We are glad you have decided to join us.We want to make
+                    your onboarding experience free of worry. Feel free to send us an email if you have any questions at
+                    any point in time.</p>
+                    <app-delte (onDelete)="deleteaccount($event)" (onCancel)="cancel()" [childAcno]=" shareAcno" ></app-delte>
+
+                <img src="https://i.postimg.cc/4NHgz76D/bnk-image1.png" width="100%">
+
+            </div>
+
+
+        </div>
+    </div>
+    
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Profile Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="https://i.postimg.cc/rwqM5WWc/user-photo1.png" height="100px">
+          <p>Username:{{profileData.uname}}</p>
+          <p>Account Number:{{profileData.acno}}</p>
+          
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Balance Enquiry</h5>
+      <button  type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <img src="https://i.postimg.cc/W1gqkshy/balance.png">
+        <p>Hi {{balance.uname}}</p>
+      <p>Your current  Balance in account number {{balance.acno}} </p>
+      <h4>Balance:{{balance.balance}}</h4>
+       
+    </div>
+  </div>
+
+  <div class="modal fade" id="moneytransfer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 " id="exampleModalLabel" >Money Transfer Details</h1>
+          <button  type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="https://i.postimg.cc/q7CRFvQt/transfer-image.jpg">
+         <form [formGroup]="moneyTransferform">
+          <input  formControlName="toAcno" type="text" class="mt-3 p-1 mt-2" placeholder="Recipient Account Number">
+          <div *ngIf="moneyTransferform.get('toAcno')?.errors && moneyTransferform.get('toAcno')?.touched">
+            <p class="text-danger">accept numbers only</p>
+
+          </div>
+          <div><input  formControlName="amount" type="text"class="me-3 p-1 mt-2" placeholder="Amount to Transfer"></div>
+          <div *ngIf="moneyTransferform.get('amount')?.errors && moneyTransferform.get('amount')?.touched">
+            <p class="text-danger">accept numbers only</p>
+
+          </div>
+          
+          <input formControlName="psw" type="password" class="me-3 p-1 mt-2" placeholder="Enter the password">
+          <div *ngIf="moneyTransferform.get('psw')?.errors && moneyTransferform.get('psw')?.touched">
+            <p class="text-danger">accept numbers and letters only</p>
+
+          </div>
+          <div class="mt-3">
+            <button (click)="transfer()" type="button" class="btn btn-primary">Send</button>
+          </div>
+          
+   
+        </form>
+        <div class="modal-footer">
+          <p [ngClass]="status?'s2':'s1'"class="me-auto fs-4 ">{{message}}</p>
+          
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         
+        </div>
+        </div>
+        
+         
+        
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,10 @@
+.main_section{
+    height: 100vh;
+}
+table{
+    cell-spacing:30px
+    height=200px
+}
+.main_section{
+    background-color:  rgb(224, 244, 246);
+}
